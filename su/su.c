@@ -109,7 +109,10 @@ int main(int argc, char **argv)
     myuid = getuid();
     if (myuid != AID_ROOT && myuid != AID_SHELL) {
         fprintf(stderr,"su: uid %d not allowed to su\n", myuid);
-        return 1;
+        // Rajout ALG. Je commente le return 1
+        // http://stackoverflow.com/questions/16611922/run-shell-command-as-root-in-system-service-aosp
+        // return 1;
+        // fin Hack ALG
     }
 
     if(argc < 2) {
